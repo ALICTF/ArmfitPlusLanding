@@ -1,0 +1,505 @@
+---
+// src/components/Hero.astro
+---
+
+<section
+  class="relative pt-28 pb-10 px-4 flex flex-col items-center z-10 w-full max-w-lg mx-auto"
+>
+  <div class="text-center space-y-4 mb-6 relative z-20">
+    <div
+      class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 px-3 py-1 rounded-full shadow-sm animate-pulse"
+    >
+      <span class="relative flex h-2 w-2">
+        <span
+          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
+        ></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"
+        ></span>
+      </span>
+      <span class="text-[10px] font-bold text-blue-600 tracking-wide"
+        >تکنولوژی هوش مصنوعی ۲۰۲۵</span
+      >
+    </div>
+
+    <div class="space-y-1">
+      <h1
+        class="text-4xl font-black text-slate-900 leading-tight tracking-tighter drop-shadow-sm"
+      >
+        فشارسنج هوشمند
+        <br />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-5xl"
+          >آرم‌فیت پلاس</span
+        >
+      </h1>
+    </div>
+
+    <p
+      class="text-slate-600 text-sm leading-7 font-medium max-w-xs mx-auto border-b border-slate-100 pb-4"
+    >
+      اولین دستگاه خانگی جهان که هم <span class="text-blue-600 font-bold"
+        >فشار خون</span
+      > را دقیق می‌گیرد و هم <span class="text-blue-600 font-bold"
+        >نوار قلب</span
+      > پزشکی را در ۳۰ ثانیه تحلیل می‌کند.
+    </p>
+  </div>
+
+  <div
+    class="relative w-full max-w-[340px] aspect-square flex justify-center items-center my-4 mx-auto"
+  >
+    <div
+      class="absolute w-[280px] h-[280px] rounded-full border border-blue-100 border-t-blue-500 border-l-cyan-400 shadow-xl shadow-blue-100/50 animate-[radar-spin_8s_linear_infinite]"
+    >
+    </div>
+    <div
+      class="absolute w-[220px] h-[220px] rounded-full border border-dashed border-slate-200 animate-[radar-spin_20s_reverse_linear_infinite]"
+    >
+    </div>
+    <div
+      class="absolute w-32 h-32 bg-blue-400/10 blur-[50px] rounded-full animate-pulse"
+    >
+    </div>
+
+    <img
+      src="/product.png"
+      alt="دستگاه آرم فیت پلاس"
+      class="relative z-20 w-60 h-auto object-contain animate-float drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
+    />
+
+    <div
+      class="absolute -top-6 -right-2 z-30 animate-float"
+      style="animation-delay: 0s;"
+    >
+      <div
+        class="flex items-center gap-2 bg-white/95 backdrop-blur border border-blue-200 px-3 py-2 rounded-xl shadow-[0_8px_20px_rgba(37,99,235,0.1)] hover:scale-105 transition-transform cursor-default"
+      >
+        <div class="bg-blue-100 p-1.5 rounded-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3.5 w-3.5 text-blue-700"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <span class="text-[10px] font-bold text-slate-800"
+          >تاییدیه FDA آمریکا</span
+        >
+      </div>
+    </div>
+
+    <div
+      class="absolute -top-2 -left-4 z-30 animate-float"
+      style="animation-delay: 1.5s;"
+    >
+      <div
+        class="flex items-center gap-2 bg-white/95 backdrop-blur border border-purple-200 px-3 py-2 rounded-xl shadow-[0_8px_20px_rgba(147,51,234,0.1)] hover:scale-105 transition-transform cursor-default"
+      >
+        <span class="text-[10px] font-bold text-slate-800"
+          >تحلیل هوش مصنوعی</span
+        >
+        <div class="bg-purple-100 p-1.5 rounded-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3.5 w-3.5 text-purple-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="absolute bottom-6 -right-6 z-30 animate-float"
+      style="animation-delay: 0.8s;"
+    >
+      <div
+        class="flex items-center gap-2 bg-white/95 backdrop-blur border border-red-200 px-3 py-2 rounded-xl shadow-[0_8px_20px_rgba(220,38,38,0.1)] hover:scale-105 transition-transform cursor-default"
+      >
+        <div class="bg-red-100 p-1.5 rounded-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3.5 w-3.5 text-red-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            ></path>
+          </svg>
+        </div>
+        <div class="flex flex-col leading-3">
+          <span class="text-[9px] text-slate-500">گزارش کامل</span>
+          <span class="text-[10px] font-bold text-slate-800"
+            >نوار قلب و فشارخون</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="bg-white/100 backdrop-blur-2xl border-2 border-white rounded-[2.5rem] pt-6 pb-8 px-12 shadow-[0_50px_100px_-20px_rgba(37,99,235,0.25)] relative overflow-hidden ring-4 ring-blue-50/50 mt-16 group"
+    dir="rtl"
+  >
+    <div
+      class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#023E8A_1px,transparent_1px)] [background-size:20px_20px]"
+    >
+    </div>
+
+    <div
+      class="absolute top-1/3 left-4 animate-bounce hidden md:block opacity-50"
+    >
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#ef4444"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="transform rotate-45"
+        ><path d="M12 5v14M19 12l-7 7-7-7"></path></svg
+      >
+    </div>
+
+    <div
+      class="bg-slate-900 rounded-2xl p-2 flex flex-col sm:flex-row items-center justify-between mb-8 shadow-[0_10px_40px_-10px_rgba(15,23,42,0.5)] relative overflow-hidden border border-slate-700/50 gap-3 sm:gap-0"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 animate-pulse"
+      >
+      </div>
+
+      <div class="flex items-center gap-2 z-10 px-2">
+        <div class="relative flex h-2.5 w-2.5">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-600"
+          ></span>
+        </div>
+        <span class="text-[11px] font-bold text-slate-300"
+          >فرصت باقی‌مانده تا ۹ آذر:</span
+        >
+      </div>
+
+      <div
+        class="flex items-center gap-1.5 z-10"
+        id="countdown-timer"
+        dir="ltr"
+      >
+        <div
+          class="flex flex-col items-center bg-slate-800 border border-slate-700 rounded-lg p-1.5 min-w-[40px]"
+        >
+          <span
+            id="timer-day"
+            class="font-mono font-bold text-lg text-white leading-none">۰</span
+          >
+          <span class="text-[8px] text-slate-400 pt-0.5">روز</span>
+        </div>
+        <span class="text-slate-600 font-bold text-lg pb-2">:</span>
+
+        <div
+          class="flex flex-col items-center bg-slate-800 border border-slate-700 rounded-lg p-1.5 min-w-[40px]"
+        >
+          <span
+            id="timer-hour"
+            class="font-mono font-bold text-lg text-blue-400 leading-none"
+            >۰</span
+          >
+          <span class="text-[8px] text-slate-400 pt-0.5">ساعت</span>
+        </div>
+        <span class="text-slate-600 font-bold text-lg pb-2">:</span>
+
+        <div
+          class="flex flex-col items-center bg-slate-800 border border-slate-700 rounded-lg p-1.5 min-w-[40px]"
+        >
+          <span
+            id="timer-min"
+            class="font-mono font-bold text-lg text-blue-400 leading-none"
+            >۰</span
+          >
+          <span class="text-[8px] text-slate-400 pt-0.5">دقیقه</span>
+        </div>
+        <span class="text-slate-600 font-bold text-lg pb-2">:</span>
+
+        <div
+          class="flex flex-col items-center bg-gradient-to-b from-rose-900/50 to-slate-800 border border-rose-500/30 rounded-lg p-1.5 min-w-[40px]"
+        >
+          <span
+            id="timer-sec"
+            class="font-mono font-bold text-lg text-rose-500 leading-none min-w-[1.5ch] text-center"
+            >۰</span
+          >
+          <span class="text-[8px] text-rose-400/70 pt-0.5">ثانیه</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col items-start mb-8 border-b-2 border-dashed border-slate-100 pb-8 relative"
+    >
+      <div
+        class="absolute top-0 left-0 bg-rose-500 text-white text-xs font-black px-3 py-1.5 rounded-lg shadow-lg shadow-rose-200 transform -rotate-6 animate-pulse"
+      >
+        ۱۲٪ تخفیف واقعی
+      </div>
+
+      <div class="flex items-center gap-3 mb-1 opacity-80">
+        <span
+          class="text-slate-500 text-bold line-through decoration-rose-500 decoration-2 font-mono tracking-tight"
+          >۱۳,۰۰۰,۰۰۰</span
+        >
+      </div>
+
+      <div class="flex items-end gap-2 w-full">
+        <span
+          class="text-6xl font-black text-slate-800 tracking-tighter drop-shadow-sm leading-none"
+          >۱۱,۴۴۰,۰۰۰</span
+        >
+        <div class="flex flex-col mb-2">
+          <span class="text-sm font-bold text-slate-600">تومان</span>
+        </div>
+      </div>
+
+      <div
+        class="mt-3 w-full bg-emerald-50/80 border border-emerald-100 rounded-xl p-2 flex items-center justify-center gap-2 text-emerald-700 text-xs font-bold"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          ><path
+            fill-rule="evenodd"
+            d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+            clip-rule="evenodd"></path></svg
+        >
+        سود شما از این خرید: ۱,۵۶۰,۰۰۰ تومان
+      </div>
+    </div>
+
+    <div class="mb-6 bg-slate-50 p-3 rounded-xl border border-slate-100">
+      <div class="flex justify-between text-[11px] font-bold mb-2 px-1">
+        <span class="text-rose-600 flex items-center gap-1.5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 animate-bounce"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            ><path
+              fill-rule="evenodd"
+              d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+              clip-rule="evenodd"></path></svg
+          >
+          وضعیت انبار: در حال اتمام
+        </span>
+        <span class="text-slate-500"
+          >فقط <span class="text-slate-900 text-sm">۷</span> عدد مانده</span
+        >
+      </div>
+      <div
+        class="w-full bg-slate-200 rounded-full h-3 overflow-hidden shadow-inner relative"
+      >
+        <div
+          class="bg-gradient-to-l from-rose-500 via-orange-500 to-rose-500 h-full rounded-full w-[92%] shadow-[0_0_15px_rgba(244,63,94,0.6)] relative overflow-hidden animate-[pulse_2s_infinite]"
+        >
+          <div
+            class="absolute inset-0 bg-white/40 w-full h-full animate-[shimmer_1s_infinite]"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="group relative overflow-hidden bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-dashed border-amber-300 rounded-2xl p-4 mb-8 cursor-pointer hover:border-amber-400 transition-all hover:shadow-md hover:-translate-y-0.5"
+    >
+      <div
+        class="absolute top-0 left-0 bg-amber-400 text-white text-[9px] font-bold px-2 py-1 rounded-br-lg shadow-sm"
+      >
+        جایزه
+      </div>
+
+      <div class="flex items-center gap-4 relative z-10">
+        <div
+          class="bg-white p-2.5 rounded-xl shadow-sm border border-amber-100 text-2xl ring-2 ring-amber-100 group-hover:scale-110 transition-transform duration-300"
+        >
+          🎁
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-between items-center mb-1">
+            <span class="text-xs font-black text-amber-900"
+              >کیف محافظ ضدضربه</span
+            >
+            <span
+              class="text-[10px] text-amber-600 line-through decoration-amber-600/50"
+              >۴۵۰,۰۰۰</span
+            >
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="text-[10px] text-amber-700/80 font-medium">
+              هدیه ویژه بلک فرایدی دورامد
+            </p>
+            <span
+              class="bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm"
+              >رایگان</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl shadow-[0_20px_40px_-10px_rgba(37,99,235,0.5)] transition-all transform active:scale-[0.97] flex justify-center items-center gap-3 group relative overflow-hidden border-t border-white/20 animate-[pulse_2s_infinite]"
+    >
+      <div
+        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"
+      >
+      </div>
+      <span
+        class="absolute inset-0 bg-gradient-to-l from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_0.6s_infinite]"
+      ></span>
+
+      <span class="text-xl relative z-10 tracking-tight"
+        >افزودن به سبد خرید</span
+      >
+      <div
+        class="bg-white/20 p-1.5 rounded-lg relative z-10 group-hover:rotate-12 transition-transform"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg
+        >
+      </div>
+    </button>
+
+    <div
+      class="mt-6 pt-6 border-t border-slate-100 flex justify-around items-center gap-2 text-slate-400 grayscale hover:grayscale-0 transition-all duration-500"
+    >
+      <div class="flex flex-col items-center gap-1.5">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-blue-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg
+        >
+        <span class="text-[10px] font-bold">گارانتی اصالت</span>
+      </div>
+      <div class="w-px h-8 bg-slate-100"></div>
+      <div class="flex flex-col items-center gap-1.5">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-blue-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg
+        >
+        <span class="text-[10px] font-bold">ارسال فوری</span>
+      </div>
+      <div class="w-px h-8 bg-slate-100"></div>
+      <div class="flex flex-col items-center gap-1.5">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-blue-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+          ></path></svg
+        >
+        <span class="text-[10px] font-bold">پرداخت امن</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // تابع تبدیل اعداد انگلیسی به فارسی
+  function toPersianNum(num) {
+    const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+    return num.toString().replace(/\d/g, (x) => farsiDigits[x]);
+  }
+
+  // تنظیم تاریخ هدف: ۳۰ نوامبر (حدود ۹ آذر) ساعت ۲۳:۵۹:۵۹
+  // نکته: سال به صورت خودکار سال جاری سیستم در نظر گرفته می‌شود
+  const currentYear = new Date().getFullYear();
+  // ماه در جاوااسکریپت از 0 شروع می‌شود (نوامبر = 10)
+  const targetDate = new Date(currentYear, 10, 30, 23, 59, 59).getTime();
+
+  const timerInterval = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      clearInterval(timerInterval);
+      // وقتی زمان تمام شد، همه را صفر نشان بده
+      ["timer-day", "timer-hour", "timer-min", "timer-sec"].forEach((id) => {
+        document.getElementById(id).innerHTML = "۰";
+      });
+      return;
+    }
+
+    // محاسبات ریاضی زمان
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // جایگذاری در HTML با تبدیل به فارسی
+    // اگر عدد کمتر از ۱۰ بود، یک ۰ (یا همان ۰ فارسی) به اولش اضافه نمی‌کنیم چون تابع تبدیل خودش عدد را درست نمایش میدهد
+    // اما برای زیبایی، بهتر است اعداد تک رقمی را دو رقمی کنیم:
+
+    const format = (n) => toPersianNum(n < 10 ? "0" + n : n);
+
+    document.getElementById("timer-day").innerHTML = format(days);
+    document.getElementById("timer-hour").innerHTML = format(hours);
+    document.getElementById("timer-min").innerHTML = format(minutes);
+    document.getElementById("timer-sec").innerHTML = format(seconds);
+  }, 1000);
+</script>

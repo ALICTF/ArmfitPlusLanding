@@ -1,11 +1,143 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro'; // <--- این خط رو اضافه کن
+import Reviews from '../components/Reviews.astro';
+import VideoSection from '../components/VideoSection.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="generator" content={Astro.generator} />
+		<title>آرم‌فیت پلاس | تکنولوژی قلب</title>
+	</head>
+	<body class="min-h-screen w-full overflow-x-hidden selection:bg-blue-100 selection:text-blue-900">
+        
+        <canvas id="neural-canvas"></canvas>
+
+		<main class="relative w-full max-w-md mx-auto min-h-screen overflow-x-hidden pb-20">
+    
+    <Header />
+    <Hero />
+    <Features /> 
+	<VideoSection />
+	<Reviews />
+    
+    
+
+</main>
+
+        <script>
+            const canvas = document.getElementById('neural-canvas') as HTMLCanvasElement;
+            const ctx = canvas.getContext('2d');
+
+            let width, height;
+            let particles = [];
+
+            // تنظیمات شبکه
+            const properties = {
+                particleColor: 'rgba(37, 99, 235, 0.5)', // رنگ آبی ذرات (Blue-600)
+                lineColor: 'rgba(37, 99, 235, 0.15)',    // رنگ خطوط اتصال (خیلی کمرنگ)
+                particleCount: 60, // تعداد ذرات (در موبایل کمتر باشه بهتره)
+                connectionDistance: 120, // فاصله‌ای که خطوط وصل میشن
+                speed: 0.4 // سرعت حرکت
+            };
+
+            // کلاس ذره
+            class Particle {
+                x: number;
+                y: number;
+                velocityX: number;
+                velocityY: number;
+                size: number;
+
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.velocityX = (Math.random() - 0.5) * properties.speed;
+                    this.velocityY = (Math.random() - 0.5) * properties.speed;
+                    this.size = Math.random() * 2 + 1;
+                }
+
+                update() {
+                    this.x += this.velocityX;
+                    this.y += this.velocityY;
+
+                    // برخورد با دیوار و برگشت
+                    if (this.x > width || this.x < 0) this.velocityX *= -1;
+                    if (this.y > height || this.y < 0) this.velocityY *= -1;
+                }
+
+                draw() {
+                    if (!ctx) return;
+                    ctx.fillStyle = properties.particleColor;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            // راه‌اندازی
+            function init() {
+                resize();
+                particles = [];
+                // تنظیم تعداد ذرات بر اساس سایز صفحه
+                const count = window.innerWidth < 768 ? 40 : 70; 
+                for (let i = 0; i < count; i++) {
+                    particles.push(new Particle());
+                }
+                loop();
+            }
+
+            // تغییر سایز صفحه
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+
+            // حلقه انیمیشن
+            function loop() {
+                if (!ctx) return;
+                
+                // پاک کردن صفحه قبلی
+                ctx.clearRect(0, 0, width, height);
+                
+                // آپدیت و رسم ذرات
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    
+                    // رسم خطوط اتصال
+                    for (let j = i; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < properties.connectionDistance) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = properties.lineColor;
+                            ctx.lineWidth = 1; // ضخامت خط
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                            ctx.closePath();
+                        }
+                    }
+                }
+                requestAnimationFrame(loop);
+            }
+
+            window.addEventListener('resize', () => {
+                resize();
+                init();
+            });
+            
+            init();
+        </script>
+	</body>
+</html>

@@ -1,0 +1,140 @@
+---
+// src/components/VideoSection.astro
+---
+
+<section id="video" class="py-24 px-4 relative overflow-hidden">
+  <div
+    class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#2563EB_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"
+  >
+  </div>
+
+  <div class="text-center mb-10 relative z-10">
+    <span
+      class="text-blue-600 font-bold text-[10px] bg-blue-50 px-3 py-1 rounded-full border border-blue-100 animate-pulse inline-flex items-center gap-1"
+    >
+      <span class="relative flex h-1.5 w-1.5">
+        <span
+          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
+        ></span>
+        <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-600"
+        ></span>
+      </span>
+      عملکرد واقعی دستگاه
+    </span>
+    <h3 class="text-2xl font-black text-slate-900 mt-3">
+      دستیار هوشمند قلب شما
+    </h3>
+    <p class="text-xs text-slate-500 mt-2">
+      برای مشاهده نحوه عملکرد، روی ویدیو ضربه بزنید
+    </p>
+  </div>
+
+  <div class="relative max-w-[320px] mx-auto z-10">
+    <div
+      class="absolute inset-0 bg-gradient-to-tr from-blue-500/30 via-cyan-400/30 to-purple-500/30 blur-[50px] -z-10 rounded-full scale-110 opacity-60"
+    >
+    </div>
+
+    <div
+      class="absolute top-16 -right-8 z-20 animate-float"
+      style="animation-duration: 4s;"
+    >
+      <div
+        class="bg-white/90 backdrop-blur shadow-sm border border-blue-100 p-1.5 rounded-xl flex items-center gap-1.5"
+      >
+        <div class="bg-blue-50 p-1 rounded-lg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3 w-3 text-blue-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <span class="text-[8px] font-bold text-slate-600">AI Active</span>
+      </div>
+    </div>
+
+    <div
+      class="relative rounded-[2.5rem] border-4 border-white bg-white p-1 shadow-2xl ring-1 ring-slate-200/50 overflow-hidden group"
+    >
+      <div
+        class="rounded-[2rem] overflow-hidden relative bg-slate-900 aspect-[9/16] isolate"
+      >
+        <video
+          id="promo-video"
+          playsinline
+          preload="metadata"
+          class="w-full h-full object-cover"
+        >
+          <source src="/video.mp4#t=0.1" type="video/mp4" />
+          مرورگر شما پشتیبانی نمی‌کند.
+        </video>
+
+        <div
+          id="video-overlay"
+          class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 backdrop-blur-[2px] cursor-pointer transition-opacity duration-500 z-20"
+        >
+          <div
+            class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 shadow-lg group-hover:scale-110 transition-transform duration-300"
+          >
+            <div
+              class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-inner"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-white ml-1"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+            </div>
+          </div>
+
+          <span class="text-white text-xs font-bold mt-4 animate-pulse"
+            >برای پخش ضربه بزنید</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // اسکریپت ساده برای کنترل ویدیو
+  const video = document.getElementById("promo-video");
+  const overlay = document.getElementById("video-overlay");
+
+  if (video && overlay) {
+    // وقتی روی کاور کلیک شد
+    overlay.addEventListener("click", () => {
+      video.play(); // پخش ویدیو
+      video.controls = true; // فعال کردن کنترل‌های استاندارد (صدا، تایم لاین)
+      overlay.style.opacity = "0"; // محو کردن کاور
+      setTimeout(() => {
+        overlay.style.display = "none"; // حذف کامل کاور از صفحه
+      }, 500);
+    });
+
+    // وقتی ویدیو تموم شد یا پاز شد، دوباره کاور رو نشون بده (اختیاری - برای تجربه بهتر)
+    video.addEventListener("pause", () => {
+      if (!video.seeking) {
+        // اگر کاربر در حال جلو عقب کردن فیلم نبود
+        overlay.style.display = "flex";
+        setTimeout(() => (overlay.style.opacity = "1"), 10);
+        video.controls = false; // مخفی کردن کنترل‌ها برای زیبایی
+      }
+    });
+
+    video.addEventListener("play", () => {
+      overlay.style.opacity = "0";
+      setTimeout(() => (overlay.style.display = "none"), 500);
+      video.controls = true;
+    });
+  }
+</script>

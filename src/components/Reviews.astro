@@ -1,0 +1,242 @@
+---
+// src/components/Reviews.astro
+
+const reviews = [
+  {
+    name: "دکتر شایگان",
+    text: "دقت نوار قلبش با دستگاه‌های مطب برابری میکنه. برای همکاران توصیه میکنم.",
+    role: "متخصص قلب",
+    initial: "د",
+    color: "bg-blue-100 text-blue-600",
+  },
+  {
+    name: "سارا پناهی",
+    text: "برای پدرم خریدم، کار باهاش خیلی راحته. فونت دستگاه درشته و خوانا.",
+    role: "خرید تایید شده",
+    initial: "س",
+    color: "bg-emerald-100 text-emerald-600",
+  },
+  {
+    name: "مهندس راد",
+    text: "تحلیل هوش مصنوعیش فراتر از انتظارم بود. اپلیکیشن بدون باگ کار میکنه.",
+    role: "توسعه دهنده",
+    initial: "م",
+    color: "bg-purple-100 text-purple-600",
+  },
+  {
+    name: "علی محمدی",
+    text: "ارسال سریع و پشتیبانی عالی دورامد. بسته بندی کاملا ایمن بود.",
+    role: "خرید تایید شده",
+    initial: "ع",
+    color: "bg-amber-100 text-amber-600",
+  },
+  {
+    name: "مریم کبیری",
+    text: "خیالم بابت فشار خون مادرم راحت شد. هر روز گزارش رو واسم میفرسته.",
+    role: "خانه دار",
+    initial: "م",
+    color: "bg-rose-100 text-rose-600",
+  },
+  {
+    name: "رضا تهرانی",
+    text: "به عنوان ورزشکار برای چک کردن ضربان قلبم حین تمرین عالیه.",
+    role: "مربی",
+    initial: "ر",
+    color: "bg-cyan-100 text-cyan-600",
+  },
+  {
+    name: "دکتر بهرامی",
+    text: "برای پایش بیماران فشار خونی این دستگاه رو پیشنهاد میدم.",
+    role: "پزشک",
+    initial: "د",
+    color: "bg-indigo-100 text-indigo-600",
+  },
+  {
+    name: "زهرا علی‌پور",
+    text: "طراحی شیک و کیفیت ساخت بالایی داره. حس پلاستیک بی کیفیت نمیده.",
+    role: "پرستار",
+    initial: "ز",
+    color: "bg-teal-100 text-teal-600",
+  },
+  {
+    name: "محسن صادقی",
+    text: "پدربزرگم راحت باهاش کار میکنه چون دکمه‌ها و اعدادش خواناست.",
+    role: "خرید تایید شده",
+    initial: "م",
+    color: "bg-lime-100 text-lime-600",
+  },
+  {
+    name: "فاطمه رضایی",
+    text: "پشتیبانی دورامد عالی بود، در راه اندازی خیلی کمکم کردند.",
+    role: "کارمند",
+    initial: "ف",
+    color: "bg-fuchsia-100 text-fuchsia-600",
+  },
+];
+
+const extendedReviews = [...reviews, ...reviews, ...reviews, ...reviews];
+---
+
+<section class="py-20 relative overflow-hidden z-20 w-full">
+  <div class="absolute inset-0 pointer-events-none z-10"></div>
+
+  <div class="text-center mb-14 relative z-20 px-4">
+    <h2 class="text-2xl font-black text-slate-800 mb-2">
+      دیگران درباره آرم‌فیت چه می‌گویند؟
+    </h2>
+    <p class="text-slate-500 text-xs font-medium">
+      بیش از ۱۰,۰۰۰ خانواده ایرانی سلامت قلب خود را به ما سپرده‌اند
+    </p>
+  </div>
+
+  <div class="relative w-full overflow-hidden mb-6" dir="ltr">
+    <div
+      class="flex w-max animate-scroll-left gap-5 hover:[animation-play-state:paused]"
+      style="animation-duration: 180s;"
+    >
+      {
+        extendedReviews.map((review) => (
+          <div
+            class="w-80 bg-white/80 backdrop-blur-md border border-white/60 rounded-[1.25rem] p-5 flex flex-col gap-4 flex-shrink-0 hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 group cursor-default shadow-sm"
+            dir="rtl"
+          >
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-3">
+                <div
+                  class={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${review.color} shadow-inner`}
+                >
+                  {review.initial}
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-slate-800">
+                    {review.name}
+                  </span>
+                  <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                    {review.role}
+                    <svg
+                      class="w-3 h-3 text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="flex gap-0.5 text-amber-400 text-[10px]">★★★★★</div>
+            </div>
+
+            <p class="text-slate-600 text-xs leading-6 text-right font-medium">
+              "{review.text}"
+            </p>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-50 mt-auto">
+              <span class="text-[10px] text-slate-300 font-mono">
+                ۲ روز پیش
+              </span>
+
+              <button class="flex items-center gap-1.5 text-slate-400 hover:text-red-500 transition-colors group/like">
+                <span class="text-[10px] font-mono group-hover/like:font-bold">
+                  مفید بود
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform group-active/like:scale-125"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="relative w-full overflow-hidden" dir="ltr">
+    <div
+      class="flex w-max animate-scroll-right gap-5 hover:[animation-play-state:paused]"
+      style="animation-duration: 180s;"
+    >
+      {
+        extendedReviews.map((review) => (
+          <div
+            class="w-80 bg-white/80 backdrop-blur-md border border-white/60 rounded-[1.25rem] p-5 flex flex-col gap-4 flex-shrink-0 hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 group cursor-default shadow-sm"
+            dir="rtl"
+          >
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-3">
+                <div
+                  class={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${review.color} shadow-inner`}
+                >
+                  {review.initial}
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-slate-800">
+                    {review.name}
+                  </span>
+                  <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                    {review.role}
+                    <svg
+                      class="w-3 h-3 text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="flex gap-0.5 text-amber-400 text-[10px]">★★★★★</div>
+            </div>
+
+            <p class="text-slate-600 text-xs leading-6 text-right font-medium">
+              "{review.text}"
+            </p>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-50 mt-auto">
+              <span class="text-[10px] text-slate-300 font-mono">
+                ۴ روز پیش
+              </span>
+              <button class="flex items-center gap-1.5 text-slate-400 hover:text-red-500 transition-colors group/like">
+                <span class="text-[10px] font-mono group-hover/like:font-bold">
+                  مفید بود
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform group-active/like:scale-125"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
