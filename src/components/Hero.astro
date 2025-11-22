@@ -382,7 +382,7 @@
       ></span>
 
       <span class="text-xl relative z-10 tracking-tight"
-        >افزودن به سبد خرید</span
+        >برای خرید ضربه بزنید</span
       >
       <div
         class="bg-white/20 p-1.5 rounded-lg relative z-10 group-hover:rotate-12 transition-transform"
@@ -458,16 +458,12 @@
 </section>
 
 <script>
-  // تابع تبدیل اعداد انگلیسی به فارسی
   function toPersianNum(num) {
     const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
     return num.toString().replace(/\d/g, (x) => farsiDigits[x]);
   }
 
-  // تنظیم تاریخ هدف: ۳۰ نوامبر (حدود ۹ آذر) ساعت ۲۳:۵۹:۵۹
-  // نکته: سال به صورت خودکار سال جاری سیستم در نظر گرفته می‌شود
   const currentYear = new Date().getFullYear();
-  // ماه در جاوااسکریپت از 0 شروع می‌شود (نوامبر = 10)
   const targetDate = new Date(currentYear, 10, 30, 23, 59, 59).getTime();
 
   const timerInterval = setInterval(function () {
@@ -476,25 +472,18 @@
 
     if (distance < 0) {
       clearInterval(timerInterval);
-      // وقتی زمان تمام شد، همه را صفر نشان بده
       ["timer-day", "timer-hour", "timer-min", "timer-sec"].forEach((id) => {
         document.getElementById(id).innerHTML = "۰";
       });
       return;
     }
 
-    // محاسبات ریاضی زمان
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // جایگذاری در HTML با تبدیل به فارسی
-    // اگر عدد کمتر از ۱۰ بود، یک ۰ (یا همان ۰ فارسی) به اولش اضافه نمی‌کنیم چون تابع تبدیل خودش عدد را درست نمایش میدهد
-    // اما برای زیبایی، بهتر است اعداد تک رقمی را دو رقمی کنیم:
-
     const format = (n) => toPersianNum(n < 10 ? "0" + n : n);
 
     document.getElementById("timer-day").innerHTML = format(days);

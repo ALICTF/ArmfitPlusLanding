@@ -3,7 +3,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
-import Features from "../components/Features.astro"; // <--- این خط رو اضافه کن
+import Features from "../components/Features.astro"; 
 import Reviews from "../components/Reviews.astro";
 import VideoSection from "../components/VideoSection.astro";
 ---
@@ -49,16 +49,14 @@ import VideoSection from "../components/VideoSection.astro";
       let width, height;
       let particles = [];
 
-      // تنظیمات شبکه
       const properties = {
-        particleColor: "rgba(37, 99, 235, 0.5)", // رنگ آبی ذرات (Blue-600)
-        lineColor: "rgba(37, 99, 235, 0.15)", // رنگ خطوط اتصال (خیلی کمرنگ)
-        particleCount: 60, // تعداد ذرات (در موبایل کمتر باشه بهتره)
-        connectionDistance: 120, // فاصله‌ای که خطوط وصل میشن
-        speed: 0.4, // سرعت حرکت
+        particleColor: "rgba(37, 99, 235, 0.5)", 
+        lineColor: "rgba(37, 99, 235, 0.15)", 
+        particleCount: 60, 
+        connectionDistance: 120, 
+        speed: 0.4, 
       };
 
-      // کلاس ذره
       class Particle {
         x: number;
         y: number;
@@ -78,7 +76,6 @@ import VideoSection from "../components/VideoSection.astro";
           this.x += this.velocityX;
           this.y += this.velocityY;
 
-          // برخورد با دیوار و برگشت
           if (this.x > width || this.x < 0) this.velocityX *= -1;
           if (this.y > height || this.y < 0) this.velocityY *= -1;
         }
@@ -92,11 +89,9 @@ import VideoSection from "../components/VideoSection.astro";
         }
       }
 
-      // راه‌اندازی
       function init() {
         resize();
         particles = [];
-        // تنظیم تعداد ذرات بر اساس سایز صفحه
         const count = window.innerWidth < 768 ? 40 : 70;
         for (let i = 0; i < count; i++) {
           particles.push(new Particle());
@@ -104,25 +99,20 @@ import VideoSection from "../components/VideoSection.astro";
         loop();
       }
 
-      // تغییر سایز صفحه
       function resize() {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
       }
 
-      // حلقه انیمیشن
       function loop() {
         if (!ctx) return;
 
-        // پاک کردن صفحه قبلی
         ctx.clearRect(0, 0, width, height);
 
-        // آپدیت و رسم ذرات
         for (let i = 0; i < particles.length; i++) {
           particles[i].update();
           particles[i].draw();
 
-          // رسم خطوط اتصال
           for (let j = i; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
@@ -131,7 +121,7 @@ import VideoSection from "../components/VideoSection.astro";
             if (distance < properties.connectionDistance) {
               ctx.beginPath();
               ctx.strokeStyle = properties.lineColor;
-              ctx.lineWidth = 1; // ضخامت خط
+              ctx.lineWidth = 1; 
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
               ctx.stroke();
