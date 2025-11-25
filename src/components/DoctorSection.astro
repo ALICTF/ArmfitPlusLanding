@@ -1,0 +1,116 @@
+---
+// src/components/DoctorSection.astro
+---
+
+<section class="py-20 px-4 relative z-10">
+    
+    <div class="max-w-5xl mx-auto bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(37,99,235,0.1)] border border-slate-100 overflow-hidden relative group">
+        
+        <div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/medical-icons.png')]"></div>
+        
+        <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-blue-100 to-transparent rounded-bl-[100%] -mr-10 -mt-10 z-0 opacity-50"></div>
+        
+        <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12 p-6 md:p-10">
+            
+            <div class="w-full md:w-1/2 relative">
+                <div class="absolute -inset-4 bg-blue-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
+                
+                <div class="relative rounded-3xl overflow-hidden aspect-[4/5] md:aspect-[3/4] shadow-2xl border-[6px] border-white ring-1 ring-slate-100 bg-slate-900">
+                    <video 
+                        id="doctor-video"
+                        playsinline
+                        preload="metadata"
+                        class="w-full h-full object-cover"
+                    >
+                        <source src="/ArmfitPlusLanding/doctor.mp4#t=0.1" type="video/mp4" />
+                    </video>
+
+                    <div id="doctor-overlay" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/40 backdrop-blur-[2px] cursor-pointer transition-all duration-300 hover:bg-slate-900/30 group/play">
+                        
+                        <div class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 shadow-lg group-hover/play:scale-110 transition-transform duration-300 relative">
+                            <div class="absolute inset-0 rounded-full border border-white/30 animate-ping opacity-50"></div>
+                            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-inner text-blue-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 bg-black/60 text-white text-[10px] font-bold px-4 py-1.5 rounded-full backdrop-blur border border-white/10 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                            مشاهده نظر تخصصی
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2 text-center md:text-right space-y-6">
+                
+                <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-[11px] font-bold border border-blue-100 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    پزشک تایید شده توسط دورامد
+                </div>
+
+                <div>
+                    <h3 class="text-3xl font-black text-slate-800 leading-tight mb-2">دکتر محمد یوسف قدوسی</h3>
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-2 text-slate-500 text-sm font-medium">
+                        <span class="text-blue-600 font-bold">متخصص قلب و عروق</span>
+                        <span class="hidden md:inline text-slate-300">|</span>
+                        <span>شماره نظام پزشکی: ۱۴۵۸۵۰</span>
+                    </div>
+                </div>
+
+                <div class="relative bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <svg class="absolute -top-3 -right-2 w-8 h-8 text-blue-200 transform -scale-x-100" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.896 14.914 16 16.017 16H19.017C19.569 16 20.017 15.552 20.017 15V9C20.017 8.448 19.569 8 19.017 8H15.017C14.465 8 14.017 8.448 14.017 9V11C14.017 11.552 13.569 12 13.017 12H12.017V5H22.017V15C22.017 18.314 19.331 21 16.017 21H14.017ZM5.01697 21L5.01697 18C5.01697 16.896 5.91397 16 7.01697 16H10.017C10.569 16 11.017 15.552 11.017 15V9C11.017 8.448 10.569 8 10.017 8H6.01697C5.46497 8 5.01697 8.448 5.01697 9V11C5.01697 11.552 4.56897 12 4.01697 12H3.01697V5H13.017V15C13.017 18.314 10.331 21 7.01697 21H5.01697Z"/></svg>
+                    
+                    <p class="text-slate-600 text-sm leading-8 text-justify font-medium relative z-10">
+                        به عنوان یک متخصص، دستگاه <span class="text-slate-900 font-bold border-b-2 border-blue-100">آرم‌فیت پلاس</span> را به بیمارانی که نیاز به پایش مداوم دارند پیشنهاد می‌کنم. دقت سنسورهای این دستگاه در تشخیص آریتمی‌های قلبی با دستگاه‌های کلینیکال برابری می‌کند و هوش مصنوعی آن در تفسیر اولیه بسیار کمک‌کننده است.
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-center md:justify-start gap-6 pt-2 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <div class="flex flex-col items-center gap-1">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966334.png" class="h-8 w-auto" alt="نظام پزشکی">
+                        <span class="text-[8px] font-bold">عضو نظام پزشکی</span>
+                    </div>
+                    <div class="w-px h-8 bg-slate-200"></div>
+                    <div class="flex flex-col items-center gap-1">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3004/3004458.png" class="h-8 w-auto" alt="FDA Approved">
+                        <span class="text-[8px] font-bold">مورد تایید FDA</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const docVideo = document.getElementById("doctor-video");
+    const docOverlay = document.getElementById("doctor-overlay");
+
+    if (docVideo && docOverlay) {
+        docOverlay.addEventListener("click", () => {
+            docVideo.play();
+            docVideo.controls = true;
+            docOverlay.style.opacity = "0";
+            setTimeout(() => {
+                docOverlay.style.display = "none";
+            }, 300);
+        });
+
+        docVideo.addEventListener("pause", () => {
+            if (!docVideo.seeking) {
+                docOverlay.style.display = "flex";
+                setTimeout(() => (docOverlay.style.opacity = "1"), 10);
+                docVideo.controls = false;
+            }
+        });
+
+        docVideo.addEventListener("play", () => {
+            docOverlay.style.opacity = "0";
+            setTimeout(() => (docOverlay.style.display = "none"), 300);
+            docVideo.controls = true;
+        });
+    }
+</script>
