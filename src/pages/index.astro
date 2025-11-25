@@ -8,33 +8,80 @@ import Reviews from "../components/Reviews.astro";
 import VideoSection from "../components/VideoSection.astro";
 import DoctorSection from "../components/DoctorSection.astro";
 import Footer from '../components/Footer.astro'; 
+
+const siteUrl = "https://landing.doramed.ir";
+const pageTitle = "خرید فشارسنج هوشمند آرم‌فیت پلاس | نوار قلب + تحلیل AI (تخفیف ویژه)";
+const pageDescription = "اولین فشارسنج خانگی با قابلیت نوار قلب و تحلیل هوش مصنوعی. دارای تاییدیه FDA و دقت کلینیکال. همین حالا با تخفیف بلک فرایدی و هدیه ویژه سفارش دهید.";
 ---
 
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="generator" content={Astro.generator} />
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <title>آرم‌فیت پلاس | تکنولوژی قلب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content="فشارسنج هوشمند, آرم فیت پلاس, Armfit Plus, نوار قلب خانگی, دستگاه فشار خون دیجیتال, دورامد, تحلیل هوش مصنوعی پزشکی, خرید فشارسنج" />
+    <meta name="author" content="Doramed" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={siteUrl} />
+
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content="🔴 فقط تا ۹ آذر: فشارسنج هوشمند با قابلیت نوار قلب و تحلیل AI + کیف محافظ رایگان 🎁" />
+    <meta property="og:image" content={`${siteUrl}/product.png`} />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="دورامد" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={siteUrl} />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={pageDescription} />
+    <meta property="twitter:image" content={`${siteUrl}/product.png`} />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "فشارسنج هوشمند آرم‌فیت پلاس (Armfit Plus)",
+        "image": [
+          "https://landing.doramed.ir/product.png"
+        ],
+        "description": "دستگاه فشارسنج دیجیتال بازویی هوشمند با قابلیت ثبت نوار قلب (ECG) و تحلیل با هوش مصنوعی. دارای تاییدیه FDA.",
+        "brand": {
+          "@type": "Brand",
+          "name": "ViHealth / Doramed"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://landing.doramed.ir",
+          "priceCurrency": "IRR",
+          "price": "114400000",
+          "priceValidUntil": "2025-11-30",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "1250"
+        }
+      }
+    </script>
   </head>
-  <body
-    class="min-h-screen w-full overflow-x-hidden selection:bg-blue-100 selection:text-blue-900"
-  >
+  
+  <body class="min-h-screen w-full overflow-x-hidden selection:bg-blue-100 selection:text-blue-900">
+    
     <canvas id="neural-canvas"></canvas>
 
-    <main
-      class="relative w-full max-w-md mx-auto min-h-screen overflow-x-hidden pb-20"
-    >
+    <main class="relative w-full max-w-md mx-auto min-h-screen overflow-x-hidden pb-24 md:pb-28">
       <Header />
       <Hero />
       <Features />
